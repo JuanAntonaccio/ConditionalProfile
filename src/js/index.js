@@ -33,14 +33,26 @@ function render(variables = {}) {
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${variables.name != null ? variables.name : ""} 
+          ${variables.lastname != null ? variables.lastname : ""}
+  </h1>
+          <h2>${variables.role != null ? variables.role : ""}</h2>
+          <h3>${variables.city != null ? variables.city : ""}
+          ${variables.country != null ? variables.country : ""} </h3>
+          <ul class="${variables.socialMediaPosition}">
+          <li><a href="https://twitter.com/alesanchezr"${
+            variables.twitter
+          } ><i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/alesanchezr"${
+              variables.github
+            }><i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/alesanchezr"${
+              variables.linkedin
+            }><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/alesanchezr"${
+              variables.instagram
+            }><i class="fa fa-instagram"></i></a></li>
+            
           </ul>
         </div>
     `;
@@ -60,9 +72,10 @@ window.onload = function() {
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
-    twitter: null,
+    twitter: "@jmarcosdura",
     github: "alesanchezr",
-    linkedin: null,
+    linkedin:
+      "https://www.linkedin.com/in/juan-antonaccio-a752851b6?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BT3a79%2FSATeiEj268%2FM3bug%3D%3D",
     instagram: null,
     name: null,
     lastname: null,
